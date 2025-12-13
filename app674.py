@@ -77,13 +77,13 @@ st.markdown("""
 # 2. DATA PROCESSING FUNCTIONS (Logic from Notebook)
 # -------------------------------------------------------------------------------------------------
 @st.cache_data
-def load_and_clean_data(uploaded_file):
+def load_and_clean_data(all_cities_combined.csv):
     """
     Loads data, converts dates, removes duplicates, and handles missing values
     specific to the logic found in the notebook (Forward/Back fill per city).
     """
     try:
-        df = pd.read_csv(uploaded_file)
+        df = pd.read_csv(all_cities_combined.csv)
         
         # Date Conversion
         df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
@@ -155,7 +155,7 @@ with st.sidebar:
     
     st.markdown("---")
     st.markdown("### 📂 Upload Data")
-    uploaded_file = st.file_uploader("Upload 'all_cities_combined.csv' or similar", type=['csv'])
+    all_cities_combined.csv = st.file_uploader("Upload 'all_cities_combined.csv' or similar", type=['csv'])
     
     st.markdown("---")
     st.info("💡 **Tip:** Ensure your CSV has columns like City, Date, PM2.5, AQI, etc.")
@@ -167,8 +167,8 @@ if page == "Data Overview":
     st.title("📊 Data Overview")
     st.markdown("### Dataset Summary & Health Check")
     
-    if uploaded_file is not None:
-        df = load_and_clean_data(uploaded_file)
+    if all_cities_combined.csv is not None:
+        df = load_and_clean_data(all_cities_combined.csv)
         
         if df is not None:
             # Metrics Row
@@ -200,8 +200,8 @@ if page == "Data Overview":
 elif page == "Exploratory Data Analysis":
     st.title("🔍 Exploratory Data Analysis")
     
-    if uploaded_file is not None:
-        df = load_and_clean_data(uploaded_file)
+    if all_cities_combined.csv is not None:
+        df = load_and_clean_data(all_cities_combined.csv)
         
         # Sidebar Filters for EDA
         selected_city = st.selectbox("Select a City to Analyze", df['City'].unique())
@@ -252,8 +252,8 @@ elif page == "Modelling & Prediction":
     st.title("🤖 Modelling & AQI Prediction")
     st.markdown("### Predict Air Quality Index (AQI) using Machine Learning (XGBoost)")
     
-    if uploaded_file is not None:
-        df = load_and_clean_data(uploaded_file)
+    if all_cities_combined.csv is not None:
+        df = load_and_clean_data(all_cities_combined.csv)
         
         if st.button("🚀 Train Model"):
             with st.spinner("Training XGBoost Regressor... Please wait."):
