@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1cfe2NBg3gcS4vGblkl7QSwjBJcbbx2Os
 """
 
-!head -n 5 data/india_air_quality.csv
+!head -n 5 data/all_cities_combined.csv
 
 !ls -F data/
 
