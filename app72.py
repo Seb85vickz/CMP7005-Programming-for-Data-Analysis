@@ -89,7 +89,7 @@ def preprocess_data(df):
 def main():
     # Sidebar Navigation
     st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Go to", ["🏠 Home & Data Overview", "📊 Exploratory Data Analysis", "🤖 Modelling & Prediction"])
+    page = st.sidebar.radio("Go to", [" Home & Data Overview", " Exploratory Data Analysis", " Modelling & Prediction"])
 
     # Load Data
     data = load_data()
@@ -104,7 +104,7 @@ def main():
             st.stop()
 
     # --- PAGE 1: HOME & DATA OVERVIEW ---
-    if page == "🏠 Home & Data Overview":
+    if page == " Home & Data Overview":
         st.title("🌤️ India Air Quality Analysis Project")
         st.markdown("### CMP7005 - Machine Learning Final Project")
         st.write("This interactive application monitors and forecasts air pollution using a real-world dataset from Indian cities (2015-2020).")
@@ -116,15 +116,15 @@ def main():
 
         st.divider()
 
-        st.subheader("📋 Dataset Preview")
+        st.subheader(" Dataset Preview")
         with st.expander("View Raw Data"):
             st.dataframe(data.head(100), use_container_width=True)
 
-        st.subheader("📝 Statistical Summary")
+        st.subheader(" Statistical Summary")
         with st.expander("View Descriptive Statistics"):
             st.dataframe(data.describe(), use_container_width=True)
 
-        st.subheader("⚠️ Missing Values Analysis")
+        st.subheader(" Missing Values Analysis")
         missing_val = data.isnull().sum()
         fig_missing = px.bar(missing_val, x=missing_val.index, y=missing_val.values,
                              title="Missing Values Count per Feature",
@@ -132,8 +132,8 @@ def main():
         st.plotly_chart(fig_missing, use_container_width=True)
 
     # --- PAGE 2: EXPLORATORY DATA ANALYSIS (EDA) ---
-    elif page == "📊 Exploratory Data Analysis":
-        st.title("📊 Exploratory Data Analysis")
+    elif page == " Exploratory Data Analysis":
+        st.title(" Exploratory Data Analysis")
 
         # Sidebar filters for EDA
         st.sidebar.subheader("Filter Settings")
@@ -151,7 +151,7 @@ def main():
         st.plotly_chart(fig_line, use_container_width=True)
 
         # 2. Correlation Analysis
-        st.subheader("🔥 Correlation Heatmap")
+        st.subheader(" Correlation Heatmap")
         st.write("Understand the relationship between different pollutants.")
 
         # Select only numeric columns for correlation
@@ -178,8 +178,8 @@ def main():
             st.plotly_chart(fig_box, use_container_width=True)
 
     # --- PAGE 3: MODELLING & PREDICTION ---
-    elif page == "🤖 Modelling & Prediction":
-        st.title("🤖 AQI Prediction Model")
+    elif page == " Modelling & Prediction":
+        st.title(" AQI Prediction Model")
         st.write("This section uses a Random Forest Regressor to predict the Air Quality Index (AQI) based on pollutant levels.")
 
         # Data Preparation
@@ -219,7 +219,7 @@ def main():
         st.divider()
 
         # User Prediction Interface
-        st.subheader("🔮 Make a Prediction")
+        st.subheader(" Make a Prediction")
         st.write("Adjust the sliders below to simulate pollutant levels:")
 
         input_cols = st.columns(3)
