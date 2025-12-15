@@ -52,7 +52,7 @@ st.markdown("""
 def load_data():
     # Attempt to load data; if not found, ask user to upload
     try:
-        df = pd.read_csv("final_aqi_cleaned_data.csv")
+        df = pd.read_csv("all_data_combined 18.csv")
         df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
         return df
     except FileNotFoundError:
