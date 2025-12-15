@@ -84,10 +84,10 @@ st.markdown("""
 @st.cache_data
 def load_data():
     """
-    Tries to load 'all_cities_combined.csv' automatically.
+    Tries to load 'final_aqi_cleaned_data.csv' automatically.
     Returns None if file is not found.
     """
-    file_path = "all_cities_combined.csv"
+    file_path = "final_aqi_cleaned_data.csv"
 
     if os.path.exists(file_path):
         try:
