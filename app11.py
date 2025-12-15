@@ -86,7 +86,8 @@ st.markdown("""
 @st.cache_data
 def load_data(url):
     try:
-        df = pd.read_csv(url)
+        df = pd.read_csv('https://raw.githubusercontent.com/Seb85vickz/CMP7005-Programming-for-Data-Analysis/refs/heads/main/final_aqi_cleaned_data.csv')
+        df
 
         # Ensuring Data parsing
         if 'Date' in df.columns:
