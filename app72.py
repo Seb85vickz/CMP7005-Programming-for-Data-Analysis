@@ -23,7 +23,6 @@ from sklearn.impute import SimpleImputer
 # --- Page Configuration ---
 st.set_page_config(
     page_title="India Air Quality Analysis",
-    page_icon=" <link rel="C:\Users\sebas\Downloads\aq_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
