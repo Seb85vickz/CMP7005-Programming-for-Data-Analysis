@@ -81,7 +81,7 @@ def main():
     data = load_data()
 
     if data is None:
-        st.error("Dataset 'final_aqi_cleaned_data.csv' not found. Please upload it.")
+        st.error("Welcome to the AQI Machine Learning Prediction")
         uploaded_file = st.sidebar.file_uploader("Upload CSV", type=["csv"])
         if uploaded_file is not None:
             data = pd.read_csv(uploaded_file)
