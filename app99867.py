@@ -30,16 +30,26 @@ st.set_page_config(
 # --- Custom CSS for Polishing ---
 st.markdown("""
     <style>
-    /* Change Main Background to Light Red */
-    [data-testid="stAppViewContainer"] {
+    /* 1. Main Background: Light Red */
+    .stApp {
         background-color: #FFCCCB;
     }
-    /* Change SideBar Background to Light Sea Blue (using LightBlue hex) */
+
+    /* 2. Sidebar Background: Light Sea Blue */
     [data-testid="stSidebar"] {
         background-color: #ADD8E6;
     }
+
+    /* 3. Button Styling (Fixing the error you saw) */
+    .stButton>button {
+        width: 100%;
+        border-radius: 5px;
+        height: 3em;
+        background-color: white; 
+    }
     </style>
 """, unsafe_allow_html=True)
+# --- STYLING BLOCK END ---
     
     .stButton>button {
         background-color: #4CAF50;
