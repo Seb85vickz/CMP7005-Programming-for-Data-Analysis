@@ -175,7 +175,7 @@ elif page == "Model Evaluation":
         with st.spinner("Training Model... Please wait..."):
             # Data Prep
             target = 'PM2.5'
-            features = ['PM10', 'NO2', 'CO', 'SO2', 'O3', 'AQI']
+            features = ['PM10', 'NO2', 'CO', 'SO2', 'O3']
             # Ensure features exist in df
             features = [f for f in features if f in df.columns]
 
