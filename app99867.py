@@ -30,16 +30,16 @@ st.set_page_config(
 # --- Custom CSS for Polishing ---
 st.markdown("""
     <style>
-    /*Main Background - Light Red */
-    {
+    /* Change Main Background to Light Red */
+    [data-testid="stAppViewContainer"] {
         background-color: #FFCCCB;
     }
-
-    /* Sidebar Background - Light Sea Blue */
-    {
-        background-color: #E0FFFF;
-        border-right: 2px solid #800000;
+    /* Change SideBar Background to Light Sea Blue (using LightBlue hex) */
+    [data-testid="stSidebar"] {
+        background-color: #ADD8E6;
     }
+    </style>
+""", unsafe_allow_html=True)
     
     .stButton>button {
         background-color: #4CAF50;
