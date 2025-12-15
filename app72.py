@@ -23,7 +23,6 @@ from sklearn.impute import SimpleImputer
 # --- Page Configuration ---
 st.set_page_config(
     page_title="India Air Quality Analysis",
-    page_icon="🌤️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -105,7 +104,7 @@ def main():
 
     # --- PAGE 1: HOME & DATA OVERVIEW ---
     if page == " Home & Data Overview":
-        st.title("🌤️ India Air Quality Analysis Project")
+        st.title(" India Air Quality Analysis Project")
         st.markdown("### CMP7005 - Machine Learning Final Project")
         st.write("This interactive application monitors and forecasts air pollution using a real-world dataset from Indian cities (2015-2020).")
 
@@ -142,7 +141,7 @@ def main():
         city_data = data[data['City'] == selected_city]
 
         # 1. Time Series Analysis
-        st.subheader(f"📈 Air Quality Trends in {selected_city}")
+        st.subheader(f" Air Quality Trends in {selected_city}")
         pollutant = st.selectbox("Select Pollutant to visualize", ['PM2.5', 'PM10', 'NO2', 'CO', 'SO2', 'O3', 'AQI'])
 
         fig_line = px.line(city_data, x='Date', y=pollutant, title=f'{pollutant} Levels Over Time in {selected_city}',
