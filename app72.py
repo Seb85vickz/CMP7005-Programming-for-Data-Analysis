@@ -197,7 +197,7 @@ def main():
         # Model Training (Cached)
         @st.cache_resource
         def train_model(X_train, y_train):
-            model = RandomForestRegressor(n_estimators=50, random_state=42)
+            model = RandomForestRegressor(n_estimators=600, max_depth=8, learning_rate=0.05, subsample=0.9, colsample_bytree=0.9, objective='reg:squarederror', random_state=42)
             model.fit(X_train, y_train)
             return model
 
