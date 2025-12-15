@@ -52,7 +52,7 @@ st.markdown("""
 def load_data():
     # Attempt to load data; if not found, ask user to upload
     try:
-        df = pd.read_csv("cleaned_aqi_data.csv")
+        df = pd.read_csv("all_cities_combined 18.csv")
         df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
         return df
     except FileNotFoundError:
@@ -81,7 +81,7 @@ def main():
     data = load_data()
 
     if data is None:
-        st.error("Dataset 'cleaned_aqi_data.csv' not found. Please upload it.")
+        st.error("Dataset 'all_cities_combined 18.csv' not found. Please upload it.")
         uploaded_file = st.sidebar.file_uploader("Upload CSV", type=["csv"])
         if uploaded_file is not None:
             data = pd.read_csv(uploaded_file)
