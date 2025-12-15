@@ -30,9 +30,17 @@ st.set_page_config(
 # --- Custom CSS for Polishing ---
 st.markdown("""
     <style>
-    .main {
-        background-color: #f5f5f5;
+    /*Main Background - Light Red */
+    {
+        background-color: #FFCCCB;
     }
+
+    /* Sidebar Background - Light Sea Blue */
+    {
+        background-color: #E0FFFF;
+        border-right: 2px solid #800000;
+    }
+    
     .stButton>button {
         background-color: #4CAF50;
         color: white;
