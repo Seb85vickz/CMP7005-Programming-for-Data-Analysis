@@ -28,7 +28,6 @@ warnings.filterwarnings('ignore')
 # -------------------------------------------------------------------------------------------------
 st.set_page_config(
     page_title="Air Quality Analysis & Prediction",
-    page_icon="🌫️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -178,17 +177,17 @@ with st.sidebar:
     page = st.radio("Go to", ["Data Overview", "Exploratory Data Analysis", "Modelling & Prediction"])
     st.markdown("---")
 
-    st.markdown("### 📂 Data Source")
+    st.markdown("### Data Source")
 
     # AUTOMATIC LOADING LOGIC
     df_raw = load_data()
     df = None
 
     if df_raw is not None:
-        st.success("✅ Dataset loaded automatically!")
+        st.success(" Dataset loaded automatically!")
         df = process_data(df_raw)
     else:
-        st.warning("⚠️ 'all_cities_combined.csv' not found.")
+        st.warning(" 'all_cities_combined.csv' not found.")
         uploaded_file = st.file_uploader("Upload CSV manually", type=['csv'])
         if uploaded_file is not None:
             df_raw = pd.read_csv(uploaded_file)
@@ -198,7 +197,7 @@ with st.sidebar:
 # 4. PAGE: DATA OVERVIEW
 # -------------------------------------------------------------------------------------------------
 if page == "Data Overview":
-    st.title("📊 Data Overview")
+    st.title(" Data Overview")
 
     if df is not None:
         # Metrics
@@ -227,7 +226,7 @@ if page == "Data Overview":
 # 5. PAGE: EXPLORATORY DATA ANALYSIS (EDA)
 # -------------------------------------------------------------------------------------------------
 elif page == "Exploratory Data Analysis":
-    st.title("🔍 Exploratory Data Analysis")
+    st.title(" Exploratory Data Analysis")
 
     if df is not None:
         if 'City' in df.columns:
@@ -238,7 +237,7 @@ elif page == "Exploratory Data Analysis":
             city_df = df
 
         # Time Series
-        st.subheader(f"📈 Pollution Trends: {selected_city}")
+        st.subheader(f" Pollution Trends: {selected_city}")
         numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
         pollutant = st.selectbox("Select Parameter", numeric_cols, index=0 if 'AQI' not in numeric_cols else numeric_cols.index('AQI'))
 
@@ -252,14 +251,14 @@ elif page == "Exploratory Data Analysis":
 
         # Correlation
         with col_eda_1:
-            st.subheader("🔗 Correlations")
+            st.subheader(" Correlations")
             corr_matrix = df.select_dtypes(include=[np.number]).corr()
             fig_corr = px.imshow(corr_matrix, text_auto=False, aspect="auto", color_continuous_scale='RdBu_r')
             st.plotly_chart(fig_corr, use_container_width=True)
 
         # Seasonal
         with col_eda_2:
-            st.subheader("🍂 Seasonal Analysis")
+            st.subheader(" Seasonal Analysis")
             if 'Season' in df.columns:
                 seasonal_avg = df.groupby('Season')[numeric_cols].mean().reset_index()
                 fig_season = px.bar(seasonal_avg, x='Season', y=pollutant, color='Season',
@@ -272,10 +271,10 @@ elif page == "Exploratory Data Analysis":
 # 6. PAGE: MODELLING AND PREDICTION
 # -------------------------------------------------------------------------------------------------
 elif page == "Modelling & Prediction":
-    st.title("🤖 AQI Prediction (XGBoost)")
+    st.title(" AQI Prediction (XGBoost)")
 
     if df is not None:
-        if st.button("🚀 Train Model"):
+        if st.button(" Train Model"):
             with st.spinner("Training..."):
                 model, features, score, error = train_model(df)
                 if error:
@@ -298,7 +297,7 @@ elif page == "Modelling & Prediction":
                     val = st.number_input(f"{feature}", value=float(df[feature].mean()))
                     input_data[feature] = val
 
-            if st.button("🔮 Calculate"):
+            if st.button(" Calculate"):
                 input_df = pd.DataFrame([input_data])
                 prediction = st.session_state['model'].predict(input_df)[0]
 
