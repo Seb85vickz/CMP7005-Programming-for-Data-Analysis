@@ -55,7 +55,7 @@ st.markdown("""
 @st.cache_data
 def load_data():
     try:
-        df = pd.read_csv("final_aqi_cleaned_data.csv")
+        df = pd.read_csv("all_cities_combined 18.csv")
         df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
         return df
     except FileNotFoundError:
