@@ -105,7 +105,6 @@ def main():
     # --- PAGE 1: HOME & DATA OVERVIEW ---
     if page == " Home & Data Overview":
         st.title(" India Air Quality Analysis Project")
-        st.markdown("### CMP7005 - Machine Learning Final Project")
         st.write("This interactive application monitors and forecasts air pollution using a real-world dataset from Indian cities (2015-2020).")
 
         col1, col2, col3 = st.columns(3)
